@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/critical-race-project/static/css/main.303f4938.chunk.css",
+    "main.css": "/critical-race-project/static/css/main.88b56ecd.chunk.css",
     "main.js": "/critical-race-project/static/js/main.bad68b95.chunk.js",
     "main.js.map": "/critical-race-project/static/js/main.bad68b95.chunk.js.map",
     "runtime-main.js": "/critical-race-project/static/js/runtime-main.fb8cfd17.js",
@@ -10,7 +10,7 @@
     "static/js/3.f95b40ec.chunk.js": "/critical-race-project/static/js/3.f95b40ec.chunk.js",
     "static/js/3.f95b40ec.chunk.js.map": "/critical-race-project/static/js/3.f95b40ec.chunk.js.map",
     "index.html": "/critical-race-project/index.html",
-    "static/css/main.303f4938.chunk.css.map": "/critical-race-project/static/css/main.303f4938.chunk.css.map",
+    "static/css/main.88b56ecd.chunk.css.map": "/critical-race-project/static/css/main.88b56ecd.chunk.css.map",
     "static/js/2.d9f8ce7e.chunk.js.LICENSE.txt": "/critical-race-project/static/js/2.d9f8ce7e.chunk.js.LICENSE.txt",
     "static/media/App.css": "/critical-race-project/static/media/mountain-and-tree-silhouette-16.0ae3eee8.png",
     "static/media/dragon_transparent.a28783bc.png": "/critical-race-project/static/media/dragon_transparent.a28783bc.png",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.fb8cfd17.js",
     "static/js/2.d9f8ce7e.chunk.js",
-    "static/css/main.303f4938.chunk.css",
+    "static/css/main.88b56ecd.chunk.css",
     "static/js/main.bad68b95.chunk.js"
   ]
 }
