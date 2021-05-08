@@ -1,38 +1,60 @@
 .App {
-  text-align: center;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	/* border: thin solid black; */
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	background: linear-gradient(to bottom, #b7eaff 0%, #94dfff 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dragon {
+	position: absolute;
+	left: 10%;
+	/* top: 50%;
+	transform: translateY(-50%); */
+	height: 33%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.envelope {
+	position: absolute;
+	height: 10%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.clouds {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20%;
+	width: 100%;
+	background-image: url('./img/clouds.png');
+	background-size: contain;
+	background-repeat: repeat-x;
 }
 
-.App-link {
-  color: #61dafb;
+.mountains {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 40%;
+	/* border: thin solid black; */
+	width: 100%;
+	background-size: contain;
+	background-image: url('img/mountain-and-tree-silhouette-16.png');
+	background-repeat: repeat-x;
+	background-position: bottom;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.go {
+	animation: infinite-left 5s forwards infinite linear;
+}
+
+@keyframes infinite-left {
+	0% {
+		background-position-x: 0vw;
+	}
+	100% {
+		background-position-x: -100vw;
+	}
 }
