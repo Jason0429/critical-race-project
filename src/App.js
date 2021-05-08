@@ -11,10 +11,16 @@ function App() {
 	}
 
 	const [dragonTop, setDragonTop] = useState(200);
+	const [started, setStarted] = useState(false);
 	const speed = 10;
 
-	$('.clouds').addClass('go');
-	$('.mountains').addClass('go');
+	function handleStart() {
+		setStarted(true);
+		setTimeout(() => {
+			$('.clouds').addClass('go');
+			$('.mountains').addClass('go');
+		}, 500);
+	}
 
 	useEffect(() => {
 		document.addEventListener('keydown', moveDragon);
@@ -49,6 +55,25 @@ function App() {
 
 	return (
 		<div className="App">
+			{/* Blur overlay */}
+			<div
+				className="blur-overlay"
+				style={{ display: started ? 'none' : 'block' }}></div>
+			{/* Start Screen */}
+			<div
+				className="start-screen"
+				style={{ display: started ? 'none' : 'flex' }}>
+				<div className="title">Instructions</div>
+				<ul>
+					<li>Use UP and DOWN arrow keys to navigate the dragon.</li>
+					<li>Collect envelopes to reveal hidden messages.</li>
+					<li>Press the Start Button to begin the adventure.</li>
+					<li>Collect as many points as you can!</li>
+				</ul>
+				<button className="btn" onClick={handleStart}>
+					Start
+				</button>
+			</div>
 			<div className="clouds"></div>
 			<img src={envelope} alt="envelope" className="envelope" />
 			<img

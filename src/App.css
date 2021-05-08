@@ -9,11 +9,20 @@
 	background: linear-gradient(to bottom, #b7eaff 0%, #94dfff 100%);
 }
 
+.blur-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	z-index: 99;
+	filter: blur(100px);
+	background: linear-gradient(to bottom, #b7eaff 0%, #94dfff 100%);
+}
+
 .dragon {
 	position: absolute;
 	left: 10%;
-	/* top: 50%;
-	transform: translateY(-50%); */
 	height: 33%;
 }
 
@@ -57,4 +66,40 @@
 	100% {
 		background-position-x: -100vw;
 	}
+}
+
+.start-screen {
+	border-radius: 30px;
+	box-shadow: 0 0 15px 3px #00000020;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	z-index: 100;
+}
+
+.start-screen .title {
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+}
+
+.start-screen .btn {
+	outline: none;
+	margin: auto;
+	text-align: center;
+	padding: 10px 20px;
+	border: none;
+	background: #212121;
+	color: white;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+}
+
+.start-screen .btn:hover {
+	background: #ffffff;
+	color: black;
 }
