@@ -13,12 +13,12 @@ function App() {
 	const [isTriviaOpen, setIsTriviaOpen] = useState(false);
 	const [answered, setAnswered] = useState(false);
 	const speed = 10;
+	const [grayscaleLevel, setGrayscaleLevel] = useState(1);
 
 	useEffect(() => {
 		// HTML elements and JQuery HTML elements
 		const dragon = document.querySelector('.dragon');
 		const envelope = document.querySelector('.envelope');
-		const $dragon = $('.dragon');
 		const $envelope = $('.envelope');
 		const $clouds = $('.clouds');
 		const $mountains = $('.mountains');
@@ -42,7 +42,7 @@ function App() {
 				// clearInterval(collisionTimer);
 			}
 		}, 100);
-	}, [setDragonTop]);
+	}, [setDragonTop, setGrayscaleLevel]);
 
 	function getTop() {
 		let value = document.querySelector('.dragon').style.top;
@@ -105,6 +105,7 @@ function App() {
 			setIsTriviaOpen(false);
 			currentTrivia.current = 0;
 			endGame();
+			setGrayscaleLevel(1);
 			return;
 		}
 
@@ -115,18 +116,24 @@ function App() {
 		setIsTriviaOpen(false);
 		setAnswered(false);
 		currentTrivia.current++;
+		$('.clouds').addClass('go-left');
+		$('.mountains').addClass('go-left');
+		$('.envelope').addClass('go-right');
+
+		const decrementor = (Math.ceil((1 / trivia.length) * 10) / 10).toFixed(
+			1
+		);
+
+		setGrayscaleLevel(
+			(prevState) => Math.floor((prevState - decrementor) * 10) / 10
+		);
+		console.log(grayscaleLevel);
 	}
 
 	function handleAnswerCheck(e) {
 		let answer = e.target.innerText.trim();
 		if (answer === trivia[currentTrivia.current].correctAnswer) {
 			setAnswered(true);
-			setTimeout(() => {
-				handleCloseTrivia();
-				$('.clouds').addClass('go-left');
-				$('.mountains').addClass('go-left');
-				$('.envelope').addClass('go-right');
-			}, 2000);
 		} else {
 			alert('Try again!');
 		}
@@ -137,14 +144,14 @@ function App() {
 	}
 
 	return (
-		<div className="App">
+		<div className="App" style={{ filter: `grayscale(${grayscaleLevel})` }}>
 			{/* Blur overlay */}
 			{(!started || isTriviaOpen) && <div className="blur-overlay"></div>}
 
 			{/* Start Screen */}
 			{!started && (
 				<div className="start-screen">
-					<div className="title">Instructions</div>
+					<div className="title">Let's Learn About AAPI History</div>
 					<ul>
 						<li>
 							Use UP and DOWN arrow keys to navigate the dragon.
@@ -168,15 +175,26 @@ function App() {
 						{trivia[currentTrivia.current].answers.map((answer) => (
 							<div
 								className="answer-choice"
-								onClick={handleAnswerCheck}>
+								onClick={answered ? null : handleAnswerCheck}>
 								{answer}
 							</div>
 						))}
 					</div>
 					{answered && (
 						<div className="correct-answer">
-							The correct answer is:{' '}
-							{trivia[currentTrivia.current].correctAnswer}!
+							<b style={{ color: 'green' }}>Correct!</b>
+							<br />
+							<a
+								target="_blank"
+								href={trivia[currentTrivia.current].link}
+								className="btn"
+								rel="noreferrer">
+								Read More
+							</a>
+							<br />
+							<button className="btn" onClick={handleCloseTrivia}>
+								Continue
+							</button>
 						</div>
 					)}
 				</div>
