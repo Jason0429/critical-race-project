@@ -7,14 +7,14 @@ export const trivia = [
 	},
 	{
 		question:
-			'Which one of the following is NOT a reason Asian immigrants came to the United States?',
+			'Which one of the following was a reason Asian immigrants came to the United States?',
 		answers: [
 			'To make money to support their families back home.',
 			'To escape economic hardship in China.',
 			'To take part in the California Gold Rush.',
-			'To be oppressed.'
+			'All of the above.'
 		],
-		correctAnswer: 'To be oppressed.',
+		correctAnswer: 'All of the above.',
 		link: 'https://asiasociety.org/education/asian-americans-then-and-now'
 	},
 	{
